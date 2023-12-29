@@ -1,5 +1,5 @@
 
-
+## convert
 def btd(n):
 	h = 0
 	for y in range(len(n)):
@@ -22,7 +22,12 @@ def dtb(n):
 	return b[::-1]
 	
 	
-	###########
+	########### logic gate
+def notg(f):
+	if(f=='1'):
+		return '0'
+	else:
+		return '1'
 
 def andg(f,s):
 	if(f=='1'):
@@ -33,29 +38,16 @@ def andg(f,s):
 	else:
 		return '0'
 		
-def org(f,s):
-	if(f=='0'):
-		if(s=='0'):
-			return '0'
-		else:
-			return '1'
-	else:
-		return '1'
-	
-def xorg(f,s):
-	if(f!='0'):
-		if(s!='0'):
-			return '0'
-		else:
-			return '1'
-	else:
-		if(s=='0'):
-			return '0'
-		else:
-			return '1'
-			
+def nandg(f,s):
+		return notg(andg(f,s))
 		
-		#############
+def org(f,s):
+	return nandg(notg(f),notg(s))
+
+def xorg(f,s):
+	return andg(org(f,s),nandg(f,s))		
+		
+		############# diagram
 def hadder(a,b):
 		
 		x1 = xorg(a,b)
