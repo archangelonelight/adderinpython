@@ -17,7 +17,7 @@ def dtb(n):
 		print(str(nc))
 		if(nc<1):
 			break
-	print(b)
+	print(b[::-1])
 	print('\n')
 	return b[::-1]
 	
